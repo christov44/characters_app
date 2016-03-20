@@ -1,0 +1,26 @@
+<h1> Your Heroes </h1>
+
+<%= link_to "Create New Hero", new_character_path %>
+<br />
+<br />
+
+<table>
+  <tr>
+    <th>Hero Name</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Universe</th>
+    <th></th>
+  </tr>
+  <br>
+  <% @characters.each do |character| %>
+  <tr>
+    <td> <%= link_to(character.hero_name, character_path(character)) %> </td>
+    <td> <%= character.first_name %> </td>
+    <td> <%= character.last_name %> </td>
+    <td> <%= character.universe %> </td> <!-- How do you make this show the universe name? I tried character.universe.name which is what is on the show page... -->
+    <td> || <%= link_to "edit", edit_character_path(character) %> || </td>
+    <td> <%= link_to "delete", character_path(character), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
+  </tr>
+  <% end %>
+</table>

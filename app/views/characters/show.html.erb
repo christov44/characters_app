@@ -1,0 +1,33 @@
+<%= link_to "Back to Character List", characters_path %>
+
+<h2> Full Bio of <%= @character.hero_name %> : </h2>
+
+<p>
+  <strong>Hero Name:</strong> <%= @character.hero_name %>
+</p>
+
+<p>
+  <strong>First Name:</strong> <%= @character.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong> <%= @character.last_name %>
+</p>
+
+<p>
+  <strong>Universe:</strong> <%= @character.universe.name %>
+</p>
+
+<p>
+  <strong>bio:</strong> <%= @character.bio %>
+</p>
+
+<ul>
+  <% @character.abilities.each do |ability| %>
+    <li><%= ability.name %></li>
+  <% end %>
+</ul>
+
+<br />
+
+<td><%= link_to "edit", edit_character_path(@character) %></td>
