@@ -8,7 +8,7 @@
   </head>
   <body>
 
-    <nav><a href="#">Marvel</a> <a href="#">DC</a></nav>
+    <nav><%= link_to "Abilities", abilities_path %> <%= link_to "Characters", characters_path %> <%= link_to "Universes", universes_path %></nav>
 
     <% flash.each do |name, msg| %> <!-- |key name, thing to display | -->
       <div class=" <%= name %>">

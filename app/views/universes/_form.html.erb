@@ -1,0 +1,15 @@
+<%= form_for @universe do |f| %>  
+
+<% if @universe.errors.any? %>
+  <% @universe.errors.full_messages.each do |message| %>
+    <p> <%= message %></p>
+  <% end %>
+<% end %> 
+
+<p>
+  <%= f.label :name %> <br>
+  <%= f.text_field :name %>
+</p>
+
+<%= f.submit %>
+<% end %>

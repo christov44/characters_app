@@ -1,0 +1,20 @@
+<h1> These are the Universes </h1>
+
+<%= link_to "Create a new Universe", new_universe_path %>
+<br />
+<br />
+
+<table>
+  <tr>
+    <th> Universe Name </th>
+  </tr>
+  <br />
+  <% @universes.each do |universe| %>
+  <tr>
+    <td> <%= link_to(universe.name, universe_path(universe)) %> </td>
+    <td> || <%= link_to "edit", edit_universe_path(universe) %> || </td>
+    <td> <%= link_to "delete", universe_path(universe), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
+  </tr>
+  <% end %>
+
+</table>

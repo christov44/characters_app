@@ -1,7 +1,5 @@
 class CharactersController < ApplicationController
 
-
-
   def index
     @characters = Character.all
   end
@@ -11,9 +9,9 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new(character_params) #changing the above create action to a new action so we can perform validations rather than create it right away
+    @character = Character.new(character_params) #initialize an object with the character params
 
-    if @character.save #note: everything that isn't nil or false is true
+    if @character.save #it will try Character.save and if successful, do the below, if not... etc 
       flash[:notice] = "Character was successfully created" #now need to put a placeholder in our view to show this flash message
       redirect_to character_path(@character) #so if this is true, return the user back to the main page
     else
@@ -48,7 +46,6 @@ class CharactersController < ApplicationController
     @character.destroy
     redirect_to characters_path
   end
-
 
   private #means that any methods deﬁned after this line have restricted access and can only be used from within this controller
 
